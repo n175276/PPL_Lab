@@ -1,0 +1,78 @@
+A-1.c.004t.gimple program
+
+
+main ()
+{
+  int D.1415;
+  int D.1416;
+  int Z.0;
+  int D.1418;
+  int a;
+  int b;
+  int c;
+  int p;
+  int q;
+  double r;
+
+  p = 6;
+  a = 10;
+  b = 20;
+  D.1415 = a * b;
+  c = D.1415 + 25;
+  p = 6;
+  q = Z;
+  r = 3.45e+1;
+  D.1416 = (int) r;
+  Z = D.1416;
+  Z.0 = Z;
+  D.1418 = Z.0 + 1;
+  Z = D.1418;
+}
+
+
+
+
+Questions
+---------
+
+        1   How  do the  declarations  look in  the  GIMPLE? Specifically,  what
+            happens to multiple  variables declared and initialized  on the same
+            line? What happens to global declaration [int Z]?
+
+         ANS:int D.1415;
+             int D.1416;
+             int Z.0;
+             int D.1418;
+             int a;
+             int b;
+             int c;
+             int p;
+             int q;
+             double r;
+          this is look like in gimple. multiple initialization variable is break into single initializationa (in each one line)and global variable become local variable
+
+
+        2   How are complex  expressions such as [c  = a * b +  25] broken down?
+            Can you  determine a  rule as  to when  temporary variables  will be
+            introduced?
+ANS: D.1415 = a * b;
+     c = D.1415 + 25;
+first temporary variable is introduced, stored the value of (a*b)and then done further process.
+
+
+        3   How are  floats/doubles represented in  GIMPLE? What happens  when a
+            float/double is assigned to an integer in [Z = r]?
+ANS:{ r = 3.45e+1;
+     D.1416 = (int) r;
+     Z = D.1416;}
+r is double.first doulble is assigned to a temparory variable and converted into integer then it is assigned to final variable
+
+
+        4   How  are reads/writes  to the  global variable  Z performed?  Why is
+            there a temporary introduced  for the statement [Z = Z  + 1] but not
+            for the statements [q = Z] or [Z = p]?
+ANS:  {Z.0 = Z;
+      D.1418 = Z.0 + 1;
+      Z = D.1418;}
+in this , temparory variable is not introduced for q=z because there is no math operation there, while z=z+1 is getting increasedthus we have to introduce the temparory variable.
+

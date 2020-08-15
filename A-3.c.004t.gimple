@@ -1,0 +1,39 @@
+main ()
+{
+  int D.1420;
+  int D.1421;
+
+  {
+    int sum;
+    int i;
+    int j;
+
+    sum = 0;
+    goto <D.1411>;
+    <D.1410>:
+    sum = sum * 2;
+    <D.1411>:
+    if (sum <= 99) goto <D.1410>; else goto <D.1412>;
+    <D.1412>:
+    i = 0;
+    goto <D.1417>;
+    <D.1416>:
+    j = 0;
+    goto <D.1414>;
+    <D.1413>:
+    D.1420 = i * j;
+    sum = D.1420 + sum;
+    j = j + 1;
+    <D.1414>:
+    if (j <= 49) goto <D.1413>; else goto <D.1415>;
+    <D.1415>:
+    i = i + 1;
+    <D.1417>:
+    if (i <= 24) goto <D.1416>; else goto <D.1418>;
+    <D.1418>:
+  }
+  D.1421 = 0;
+  return D.1421;
+}
+
+

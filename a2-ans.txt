@@ -1,0 +1,69 @@
+Questions
+---------
+
+        1   How have if-blocks  been translated into GIMPLE  statements? Can you differentiate between conditional and unconditional gotos?
+
+ANS:as above we get if condition is true, conditional gotos arefirst assigned or exicuted and dilivered to right position
+while unconditional gotos are returning its value or output unconditionally.
+
+
+
+        2   Repeat  the  above compilation,  but  now  asking for  another  dump that  of  the pass  "cfg".  View  this  pass  and say  whether  this representation makes it easier to  read and understand GIMPLEs. Draw the control-flow graph  of the program A-2.c on a  piece of paper by looking at the CFG dump.
+
+ANS:
+
+ yes yhis representation maksd easier to read and understand gimples.
+
+;; Function f (f, funcdef_no=0, decl_uid=1406, cgraph_uid=0, symbol_order=1)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5 6
+;; 2 succs { 3 4 }
+;; 3 succs { 6 }
+;; 4 succs { 5 6 }
+;; 5 succs { 6 }
+;; 6 succs { 1 }
+f ()
+{
+  int c;
+  int b;
+  int a;
+  int D.1418;
+  int D.1417;
+
+  <bb 2>:
+  a = Z;
+  if (a <= 9)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  b = 5;
+  c = 17;
+  goto <bb 6>;
+
+  <bb 4>:
+  b = 6;
+  c = 20;
+  if (a == 0)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  c = 0;
+
+  <bb 6>:
+  D.1417 = b * 10;
+  D.1418 = D.1417 + c;
+  Z = D.1418;
+  return;
+
+}
+
+

@@ -1,0 +1,46 @@
+Questions
+---------
+
+        1   Identify the basic blocks that correspond  to the while loop. How is the GIMPLE for a while loop different from simple if-else jumps?
+
+ANS:
+ {<bb 3>:
+  sum = sum * 2;}
+In gimple initial condition is already given ,as in while compilation directly come to statement if condition is true and in if else loop there is condition given to initialise and then come to compilation
+
+
+
+
+        2   Identify the  basic blocks  for the nested  for-loop. You  should be able  to identify  intializers, conditions  and increments  for each loop as  well as  the shared  inner body.  Is there  really anything special about a for-loop as compared to a while-loop?
+
+ANS:
+ <bb 5>:
+  i = 0;
+  goto <bb 10>;
+
+  <bb 6>:
+  j = 0;
+  goto <bb 8>;
+
+  <bb 7>:
+  D.1420 = i * j;
+  sum = D.1420 + sum;
+  j = j + 1;
+
+  <bb 8>:
+  if (j <= 49)
+    goto <bb 7>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  i = i + 1;
+
+  <bb 10>:
+  if (i <= 24)
+    goto <bb 6>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  D.1421 = 0;

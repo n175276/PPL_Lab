@@ -1,0 +1,31 @@
+Questions
+---------
+
+        1   How is array declaration and initialization handled?
+ANS:
+int b[3];
+  int a[3];
+  int D.1417;
+  int * D.1416;
+  int D.1415;
+
+  <bb 2>:
+  b[0] = 1;
+  b[1] = 2;
+  b[2] = 3;
+first there declaration of values takes place
+
+ 
+       2   Why does the statement a[i] = b[i] get broken down to two steps withan intermediate temporary?
+
+ANS:
+D.1415 = b[i];
+a[i] = D.1415;
+in array given value can be anything, to avoid compilation error , atemporory variable is assinged.
+
+        3   Why are there CLOBBER statements at the end?
+Ans:
+clobber means initialisation as global variable, at end they are assinging array a and b as global so they can again reuse.
+
+
+
