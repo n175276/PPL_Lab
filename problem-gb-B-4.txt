@@ -1,0 +1,29 @@
+
+Program
+-------
+
+        int main()
+        {
+            int a, b, c;
+            b = (a + c + b) * (c + a);
+            return b;
+        }
+
+
+Questions
+---------
+
+        1   How many  times is the expression  (a + c) computed  in the original code (as seen in the SSA pass)? What about after the FRE pass?
+ANS:
+in SSA pass (a + c)computed two times, while in FRE pass it compute one time.
+
+        2   Have  there been  any more  optimizations  after FRE?  How will  you check?
+ANS:
+yes it is optimized, that it becomes a smaller size, consumes less memory, executes more rapidly, or performs fewer input/output operations.
+
+
+        3   Why did  we have  to put a  "return b" in  this assignment?  What if "return b" is changed to "return 0"? Will it make any difference.
+ANS:
+to return the value b at the end of program
+if we "return b" is changed to "return 0" , then code will return 'false' value instead of real value of b.
+

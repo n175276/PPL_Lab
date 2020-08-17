@@ -1,0 +1,31 @@
+
+
+Program
+-------
+        
+        #include <stdio.h>
+        int main ()
+        {
+           int a, b;
+           for (a=4 ; a<100; a++) {
+               if (a < 4)
+        	   b = b + 2;
+               else
+        	   b = b * 2;
+           }
+           printf ("%d%d", a, b);
+        }
+        
+Questions
+---------
+
+        1   In the file B-3.c, what values  can variable `a' take? Will the `if' condition [a  < 4] ever  be true?  Inspect the file  B-3.c.*.vrp1 to analyze the dump.
+
+ans =
+values of a can be taken are 4<a<100.
+if condition cannot be true.
+in this file,
+if condotion cannot be true,so else condition is for for loop.
+
+
+

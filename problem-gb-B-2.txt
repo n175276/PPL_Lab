@@ -1,0 +1,26 @@
+
+
+Program
+-------
+
+        int N;
+
+        int main()
+        {
+            int i, a = 10;
+            for(i= 0; i < 4; i++)
+            {
+        	a = a + N;
+            };
+            return a;
+        }
+
+Questions
+---------
+
+        1   What will happen if "a = a + N" is replaced by "a = a + 1"?
+ans:
+If a = a + N is replaced by a = a + 1, then their change in output also their change in argument.their is no use of global variabel N. it occupied useless space in code.
+
+
+

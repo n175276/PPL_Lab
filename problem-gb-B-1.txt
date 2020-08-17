@@ -1,0 +1,32 @@
+---------------------
+
+
+Program
+-------
+
+        int AddTwo(int a)
+        {
+            a = a + 2;
+            return a;
+        }
+
+        int main()
+        {
+            int x = 3;
+            x = AddTwo(x);
+            return x;
+        }
+
+Questions
+---------
+
+        1   The body  of AddTwo(x)  seems to  be inlined into  the call  of main rendering the function useless (nobody else is calling it). Then why is the definition of AddTwo(x) still there all the way till the last pass (B-1.c.*.optimized)?
+ANS:
+ti is true that.
+the body of AddTwo(x) seems to be inclined into the call of main rendering the function useless.
+A function only work if we call them. a function is said to be predifination of any argument so we can save time and we make that easy to handle.
+
+        2   Is there any way to get rid of it?
+ans:
+yes we can get read of that,we have to write it on main code again.
+
